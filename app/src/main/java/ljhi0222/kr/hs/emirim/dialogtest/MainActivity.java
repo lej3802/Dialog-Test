@@ -24,7 +24,15 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         dialog.setTitle("첫 번째 다이얼로그");
         dialog.setIcon(R.mipmap.ic_launcher);
         // dialog.setMessage("여기는 메시지를 쓰는 곳입니다.");
-        dialog.setItems(itemArr, new DialogInterface.OnClickListener() {
+        // 단순 목록
+        /*dialog.setItems(itemArr, new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                but_dialog.setText(itemArr[i]);
+            }
+        });*/
+        // 라디오 버튼 목록
+        dialog.setSingleChoiceItems(itemArr, 0, new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
                 but_dialog.setText(itemArr[i]);
