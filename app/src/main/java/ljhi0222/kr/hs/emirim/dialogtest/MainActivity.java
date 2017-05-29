@@ -24,6 +24,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         dialog.setTitle("첫 번째 다이얼로그");
         dialog.setIcon(R.mipmap.ic_launcher);
         // dialog.setMessage("여기는 메시지를 쓰는 곳입니다.");
+
         // 단순 목록
         /*dialog.setItems(itemArr, new DialogInterface.OnClickListener() {
             @Override
@@ -31,14 +32,25 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 but_dialog.setText(itemArr[i]);
             }
         });*/
+
         // 라디오 버튼 목록
-        dialog.setSingleChoiceItems(itemArr, 0, new DialogInterface.OnClickListener() {
+        /*dialog.setSingleChoiceItems(itemArr, 0, new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
                 but_dialog.setText(itemArr[i]);
             }
+        });*/
+
+        // 체크 박스 목록
+        boolean[] checkedItems = {true, false, true, false, true, false, true};
+        dialog.setMultiChoiceItems(itemArr, checkedItems, new DialogInterface.OnMultiChoiceClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i, boolean b) {
+                but_dialog.setText(itemArr[i]);
+            }
         });
-        dialog.setPositiveButton("OK", null);
+
+        // dialog.setPositiveButton("OK", null);
         dialog.show();
     }
 }
